@@ -22,7 +22,7 @@ function App() {
   
 
   return (
-    <div className="container">
+    <div>
       {occupations && states && <Form occupations={occupations} states={states} />}
     </div>
   );

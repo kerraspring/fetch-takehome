@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { TextField, Button, FormControl, Select, InputLabel, MenuItem } from '@mui/material';
+import { TextField, Button, FormControl, Select, InputLabel, MenuItem, Card, CardContent, CardActions, FormGroup } from '@mui/material';
+import { Box } from '@mui/system';
 
 
 const Form = (props) => {
@@ -46,8 +47,19 @@ const Form = (props) => {
     };
 
     return (
-        <div>
+      <Box sx={{
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center',
+        height:'800px'
+      }}
+        
+      >
+        <Card sx={{ maxWidth: 500, minWidth: 240}}>
+          <CardContent>
+            
             <form onSubmit={handleSubmit}>
+            <FormControl fullWidth>
             <TextField
             name="name"
             value={inputs.name}
@@ -58,6 +70,8 @@ const Form = (props) => {
             variant="outlined"
             onChange={handleChange}
             />
+            </FormControl>
+            <FormControl fullWidth>
             <TextField
             name="email"
             value={inputs.email}
@@ -68,6 +82,8 @@ const Form = (props) => {
             variant="outlined"
             onChange={handleChange}
             />
+            </FormControl>
+            <FormControl fullWidth>
             <TextField
             name="password"
             value={inputs.password}
@@ -78,10 +94,11 @@ const Form = (props) => {
             variant="outlined"
             onChange={handleChange}
             />
+            </FormControl>
             
 
-            <FormControl fullWidth>
-  <InputLabel id='occupations'>Select Occupation</InputLabel>
+            <FormControl variant="standard" fullWidth>
+  <InputLabel sx={{paddingLeft:2}} id='occupations'>Select Occupation</InputLabel>
   <Select
     name='occupation'
     labelId='occupations-label'
@@ -90,6 +107,7 @@ const Form = (props) => {
     value={inputs.occupation}
     onChange={handleChange}
     required
+    sx={{ margin:2 }}
   >
     {occupations.map((occupation, index) => (
       <MenuItem key={index} value={occupation}>{occupation}</MenuItem>
@@ -97,8 +115,8 @@ const Form = (props) => {
   </Select>
 </FormControl>
 
-<FormControl fullWidth>
-  <InputLabel id='states'>Select State</InputLabel>
+<FormControl variant="standard" fullWidth>
+  <InputLabel sx={{paddingLeft:2}} id='states'>Select State</InputLabel>
   <Select
     name='state'
     labelId='states-label'
@@ -107,16 +125,22 @@ const Form = (props) => {
     value={inputs.state}
     onChange={handleChange}
     required
+    sx={{ margin:2 }}
   >
     {states.map((state, index) => (
       <MenuItem key={index} value={state.abbreviation}>{state.name}</MenuItem>
     ))}
   </Select>
 </FormControl>
+<CardActions>
             <Button variant='contained' type='submit'>Submit</Button>
+            </CardActions>
+            
             </form>
-        </div>
-        
+            
+            </CardContent>
+        </Card>
+      </Box>
     )
 }
 
