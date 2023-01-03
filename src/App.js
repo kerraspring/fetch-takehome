@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { useState, useEffect } from 'react'
+import Form from './components/Form';
 
 function App() {
+
+    const [data, setData] = useState({});
+    const {occupations, states} = data;
+    
+  useEffect(() => {
+    const getLists = () => {
+      fetch('https://gtfo-cors--timmy_i_chen.repl.co/get?url=https://frontend-take-home.fetchrewards.com/form')
+      .then(res => res.json())
+      .then((data) => {
+        setData(data)
+      })
+    };
+    getLists();
+  }, [])
+  
+  
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      {occupations && states && <Form occupations={occupations} states={states} />}
     </div>
   );
 }
