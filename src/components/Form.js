@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   TextField,
   Button,
@@ -60,24 +60,10 @@ export default function Form(props) {
   };
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "1000px",
-      }}
-    >
-      <Card sx={{ maxWidth: 500, minWidth: 240 }}>
-        <CardContent sx={{ backgroundColor: "#FFD86F" }}>
-          <Typography
-            variant="h1"
-            sx={{
-              fontSize: "h2.fontSize",
-              justifyContent: "center",
-              display: "flex",
-            }}
-          >
+    <Box className='form-box'>
+      <Card className='form-card'>
+        <CardContent className="form-card">
+          <Typography variant="h1" sx={{fontSize: "h2.fontSize"}}>
             Register
           </Typography>
           <form onSubmit={handleSubmit}>
@@ -166,7 +152,7 @@ export default function Form(props) {
                 ))}
               </Select>
             </FormControl>
-            <CardActions sx={{ justifyContent: "center", display: "flex" }}>
+            <CardActions className='form-btn'>
               <Button
                 variant="contained"
                 sx={{ backgroundColor: "#300D38" }}

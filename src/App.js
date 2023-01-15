@@ -21,7 +21,7 @@ function App() {
   }, []);
 
   return (
-    <Box sx={{ backgroundColor: "#300D38" }}>
+    <Box className='app-box'>
       {occupations && states && (
         <Form occupations={occupations} states={states} />
       )}

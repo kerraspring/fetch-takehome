@@ -11,3 +11,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+.app-box {
+  background-color: #300D38;
+}
+
+.form-card {
+  max-width: 500px;
+  min-width: 240px;
+  background-color: #FFD86F;
+}
+
+.form-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1000px
+}
+
+.form-btn {
+  display: flex;
+  justify-content: center;
+}
+
+
+@media (max-width: 500px) {
+  .form-box {
+    align-items: flex-start;
+    padding-top: 40px;
+  }
+}
