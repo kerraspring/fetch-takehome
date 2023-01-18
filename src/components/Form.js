@@ -13,9 +13,10 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 
-const Form = (props) => {
+export default function Form(props) {
   const { occupations, states } = props;
-  const [response, setResponse] = useState(null);
+  // eslint-disable-next-line
+  const [response, setResponse] = useState();
 
   const [inputs, setInputs] = useState({
     name: "",
@@ -25,14 +26,14 @@ const Form = (props) => {
     state: "",
   });
 
-  const handleChange = (e) => {
+  function handleChange(e) {
     setInputs((previousState) => ({
       ...previousState,
       [e.target.name]: e.target.value,
     }));
   };
 
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
     const postForm = {
       method: "POST",
@@ -45,15 +46,17 @@ const Form = (props) => {
         state: inputs.state,
       }),
     };
-    console.log(postForm.body);
-    fetch("https://frontend-take-home.fetchrewards.com/form", postForm)
-      .then((response) => response.json())
-      .then((data) => {
-        setResponse(data);
-        console.log(data);
-      });
-    alert("Thanks for registering!").catch((error) => console.log(error));
-    alert("Error submitting response. Please try again.");
+    try {
+      fetch("https://frontend-take-home.fetchrewards.com/form", postForm)
+        .then((response) => response.json())
+        .then((data) => {
+          setResponse(data);
+        });
+      alert("Thanks for registering!")
+    } catch (error) {
+      console.error(error);
+      alert("Error submitting response. Please try again");
+    }
   };
 
   return (
@@ -179,4 +182,3 @@ const Form = (props) => {
   );
 };
 
-export default Form;
