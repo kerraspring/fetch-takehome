@@ -1,31 +1,46 @@
 import { Box } from "@mui/material";
 import React from "react";
 import { useState, useEffect } from "react";
+import ErrorAlert from "./components/ErrorAlert";
 import Form from "./components/Form";
+import LoadingScreen from "./components/LoadingScreen";
+import getLists from "./service/listService";
 
 function App() {
   const [data, setData] = useState({});
-  const { occupations, states } = data;
-
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(true);
+  
   useEffect(() => {
-    const getLists = () => {
-      fetch(
-        "https://gtfo-cors--timmy_i_chen.repl.co/get?url=https://frontend-take-home.fetchrewards.com/form"
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          setData(data);
-        });
-    };
-    getLists();
+    setLoading(true);
+    getLists()
+      .then((data) => {
+        setData(data);
+        setLoading(false);
+      })
+      .catch(() => {
+        setError(true);
+        setLoading(false);
+      });
   }, []);
 
+  if (loading) {
+    return (
+      <div className="container load-container">
+    <LoadingScreen />
+    </div>
+  )}
+
+  if (error) {
+    return <ErrorAlert />;
+  }
+
   return (
-    <Box className='app-box'>
-      {occupations && states && (
-        <Form occupations={occupations} states={states} />
-      )}
+    <div className="container">
+    <Box className='app-box full-height'>
+      <Form occupations={data.occupations} states={data.states} />
     </Box>
+    </div>
   );
 }
 
