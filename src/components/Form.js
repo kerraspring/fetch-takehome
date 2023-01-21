@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NameField from "./NameField";
 import EmailField from "./EmailField";
 import PasswordField from "./PasswordField";
@@ -32,6 +32,14 @@ export default function Form({ occupations, states }) {
     submitForm(inputs, setSuccess, setError, setInputs);
   }
 
+  useEffect(() => {
+    if (success) {
+      setTimeout(() => {
+        setSuccess(false);
+      }, 5000);
+    }
+  }, [success]);
+
   return (
     <>
       <Stack spacing={2} className='form-stack'>
@@ -40,14 +48,19 @@ export default function Form({ occupations, states }) {
         </Typography>
         <form onSubmit={handleSubmit} className='form-inputs'>
           <Stack spacing={2} className='form-inputs'>
-            <NameField onChange={handleInputChange} />
-            <EmailField onChange={handleInputChange} />
-            <PasswordField onChange={handleInputChange} />
+            <NameField onChange={handleInputChange} success={success} />
+            <EmailField success={success} onChange={handleInputChange} />
+            <PasswordField success={success} onChange={handleInputChange} />
             <OccupationField
               occupations={occupations}
+              success={success}
               onChange={handleInputChange}
             />
-            <StateField states={states} onChange={handleInputChange} />
+            <StateField
+              states={states}
+              success={success}
+              onChange={handleInputChange}
+            />
             <CardActions className='form-btn-container'>
               <SubmitButton />
             </CardActions>

@@ -6,7 +6,7 @@ https://joyful-crumble-07954a.netlify.app/
 
 ## Challenges
 - Creating service files for API calls was not something I had done in the past. It was necessary because they were cluttering up my component code making it hard to read.
-- Breaking down the form into smaller components seemed unnecessary considering the small size of the project, but once I making functions for each input field change it made sense to do. Again because they were crowding the code.
+- Breaking down the form into smaller components seemed unnecessary considering the small size of the project, but once I started making functions for each input field change it made sense to do. Again because they were crowding the code.
 - I probably spent longer than I should have styling pixel perfect to how I envisioned, but it was a fun break when I got stuck on other areas of the app.
 
 ## Tech Used
