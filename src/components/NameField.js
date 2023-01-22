@@ -24,6 +24,7 @@ export default function NameField({ onChange, success }) {
       name='Full Name'
       variant='outlined'
       onChange={handleChange}
+      aria-required='true'
     />
   );
 }

@@ -23,15 +23,14 @@ export default function OccupationField({ occupations, onChange, success }) {
           <InputLabel id='occupations'>Select Occupation</InputLabel>
           <Select
             fullWidth
-            labelId='occupations-label'
-            id='occupations'
-            label='Occupations'
+            labelId='occupations'
             value={occupation}
             onChange={handleChange}
             required
+            aria-required='true'
           >
             {occupations.map((occupation, index) => (
-              <MenuItem key={index} value={occupation}>
+              <MenuItem id='occupations' key={index} value={occupation}>
                 {occupation}
               </MenuItem>
             ))}

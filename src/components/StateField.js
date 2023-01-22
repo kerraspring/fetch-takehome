@@ -20,15 +20,15 @@ export default function StateField({ states, onChange, success }) {
     <>
       {states ? (
         <>
-          <InputLabel id='states'>Select State</InputLabel>
+          <InputLabel htmlFor='states' id="statesLabel">Select State</InputLabel>
           <Select
             fullWidth
-            labelId='states-label'
             id='states'
-            label='States'
+            labelId='statesLabel'
             value={state}
             onChange={handleChange}
             required
+            aria-required='true'
           >
             {states.map((state, index) => (
               <MenuItem key={index} value={state.abbreviation}>

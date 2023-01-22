@@ -23,6 +23,7 @@ export default function PasswordField({ onChange, success }) {
       label='Password'
       variant='outlined'
       onChange={handleChange}
+      aria-required='true'
     />
   );
 }

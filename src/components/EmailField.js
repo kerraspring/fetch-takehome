@@ -23,6 +23,7 @@ export default function EmailField({ onChange, success }) {
       label='Email'
       variant='outlined'
       onChange={handleChange}
+      aria-required='true'
     />
   );
 }
