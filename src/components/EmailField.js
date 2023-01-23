@@ -24,6 +24,7 @@ export default function EmailField({ onChange, success }) {
       variant='outlined'
       onChange={handleChange}
       aria-required='true'
+      data-cy='email-input'
     />
   );
 }

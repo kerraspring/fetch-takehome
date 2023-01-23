@@ -20,14 +20,16 @@ export default function OccupationField({ occupations, onChange, success }) {
     <>
       {occupations ? (
         <>
-          <InputLabel id='occupations'>Select Occupation</InputLabel>
+          <InputLabel htmlFor='occupations' id='occupations'>Select Occupation</InputLabel>
           <Select
             fullWidth
             labelId='occupations'
+            id='occupations'
             value={occupation}
             onChange={handleChange}
             required
             aria-required='true'
+            data-cy='occupation-input'
           >
             {occupations.map((occupation, index) => (
               <MenuItem id='occupations' key={index} value={occupation}>

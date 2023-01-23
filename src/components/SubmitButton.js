@@ -17,8 +17,9 @@ export default function SubmitButton() {
       }}
       type='submit'
       onSubmit={handleClick}
+      data-cy='submit-btn'
     >
-      {loading ? <CircularProgress size={24} color='secondary' /> : "Submit"}
+      {loading ? <CircularProgress size={24} color='secondary' data-cy='loading-btn'/> : "Submit"}
     </Button>
   );
 }

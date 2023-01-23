@@ -24,6 +24,7 @@ export default function PasswordField({ onChange, success }) {
       variant='outlined'
       onChange={handleChange}
       aria-required='true'
+      data-cy='password-input'
     />
   );
 }

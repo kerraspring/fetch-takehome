@@ -11,7 +11,7 @@ export default function ErrorAlert() {
   
   return (
     <Snackbar open={open}>
-      <Alert severity='error'>Error. Please try again</Alert>
+      <Alert severity='error' data-cy='error-alert'>Error. Please try again</Alert>
     </Snackbar>
   );
 }

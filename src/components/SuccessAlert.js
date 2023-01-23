@@ -5,7 +5,7 @@ import { Alert } from "@mui/material";
 export default function SuccessAlert() {
   return (
     <Snackbar open={true}>
-      <Alert severity='success'>Thanks for registering!</Alert>
+      <Alert severity='success' data-cy='success-alert'>Thanks for registering!</Alert>
     </Snackbar>
   );
 }

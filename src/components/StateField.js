@@ -29,6 +29,7 @@ export default function StateField({ states, onChange, success }) {
             onChange={handleChange}
             required
             aria-required='true'
+            data-cy='state-input'
           >
             {states.map((state, index) => (
               <MenuItem key={index} value={state.abbreviation}>
